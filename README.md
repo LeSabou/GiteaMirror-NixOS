@@ -20,7 +20,7 @@ Clients légers NixOS (déploiement via flake)
 
 ## Prérequis
 
-- Serveur Gitea déployé et fonctionnel sur le NAS, accessible à `https://git.local.sudaero.org:3000`.
+- Serveur Gitea déployé et fonctionnel sur le NAS, accessible à `https://git.local.*****.org:3000`.
 - Compte administrateur Gitea créé.
 - Configuration NixOS en flakes hébergée sur GitHub.
 - Clé USB d'installation NixOS.
@@ -100,7 +100,7 @@ sudo mount /dev/disk/by-label/boot /mnt/boot
 
 ```bash
 nix-shell -p git
-git clone https://git.local.sudaero.org:3000/admin/nixos-config.git /mnt/etc/nixos-config
+git clone https://git.local.*******.org:3000/admin/nixos-config.git /mnt/etc/nixos-config
 cd /mnt/etc/nixos-config
 ```
 
@@ -166,7 +166,7 @@ Si tous les clients légers sont matériellement identiques, générer le hardwa
 | Action | Commande |
 | --- | --- |
 | Forcer la synchro du miroir | Gitea → dépôt → `Settings → Mirror Settings → Synchronize Now` |
-| Cloner la config (install) | `git clone https://git.local.sudaero.org:3000/admin/nixos-config.git /mnt/etc/nixos-config` |
+| Cloner la config (install) | `git clone https://git.local.******.org:3000/admin/nixos-config.git /mnt/etc/nixos-config` |
 | Générer le hardware réel | `sudo nixos-generate-config --root /mnt --show-hardware-config > hosts/<hôte>/hardware-configuration.nix` |
 | Installer | `sudo nixos-install --flake /mnt/etc/nixos-config#<hôte>` |
 | Mettre à jour | `cd /etc/nixos-config && git pull && sudo nixos-rebuild switch --flake .#<hôte>` |
